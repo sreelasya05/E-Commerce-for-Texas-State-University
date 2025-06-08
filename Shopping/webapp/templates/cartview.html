@@ -1,0 +1,49 @@
+		
+{% extends 'base_u.html' %}
+{% load static %}
+
+{% block content %}
+
+	<strong>{{msg}}</strong>
+	
+
+<center>
+			<table id="tab" width="100%">
+					<tr><th>Item
+					<th>Name		
+					<th>Unit Price
+					<th>Quantity
+					 <th>Total Cost</li><th>		
+
+				
+				{% for d in cart %}
+	
+				<tr><td>		
+						<img  src="{{baseUrl}}/{{d.photo}}" class="img-responsive" alt="" width="100">	
+				<td>
+						{{d.prod_name}}
+						<td>$ {{d.unit_cost}}
+							<td>{{d.quantity}} unit/s
+						<td>
+							$ {{d.tot_cost}}</td>
+							<td><a href="{% url 'cartdelete' op=d.id %}"><img src="{{baseUrl}}/delete.png" width="" alt=""></a>
+						
+						
+				
+
+						
+			{% endfor %}
+			</table>
+				
+			<form method="get" action="/payment/">
+ 
+
+					<table align="right">
+					<tr>
+						<td><font size="" ><input bgcolor="#ff3333" type="submit" value="Buy" class="form-control"></font></td>
+					</tr>
+					</table>
+			</form>
+
+			
+{% endblock %}

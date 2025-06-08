@@ -1,0 +1,78 @@
+{% extends 'base_u.html' %}
+{% load static %}
+
+{% static "images" as baseUrl %}
+
+{% block content %}
+<h4>{{msg}}</h4>
+<h1>Add Items</h1>
+ 
+<!-- 
+<table id="tab" width="60%">
+
+<tr><th>Item Id<th>Category<th>Item Name
+<th>Item Type
+<th>Item Cost
+
+
+
+{% for d in item %}
+
+<tr><td>{{d.id}}<td>{{d.catname}}<td>{{d.itemname}}<td>{{d.itemtype}}<td>{{d.itemcost}}
+
+{% endfor %}
+</table>
+ -->
+
+
+
+<form method="post" action="/additemaction/" enctype="multipart/form-data">
+	{% csrf_token %} 
+
+<table id="tab"  width="80%" cellspacing="10">
+
+<tr><td>Select Product Category
+<select name="cat" class="form-control" >
+{% for d in cat %}
+	<option value="{{d.name}}|{{d.id}}">{{d.name}}
+{% endfor %}
+</select>
+<tr><td>
+Product Name
+<input class="form-control"  type="text" name="name" placeholder="Enter Item Name "  required="required" >
+<tr><td>
+Product Description
+<input class="form-control"  type="text" name="desc" placeholder="Enter description"  required="required" >
+<tr><td>
+Product Cost
+<input class="form-control"  type="number" name="cost" placeholder="Enter Cost " required="required"  >
+<tr>
+
+
+<td>
+No. of availability
+<input class="form-control"  type="number" min=1 name="ava" placeholder="Enter No. of availability" required="required"  >
+
+
+<tr><td>
+Upload Image
+<input class="form-control"  type="file" name="itemimage" placeholder="Upload Image" accept="image/*" required="required" >
+<tr><td>
+Keywords
+<input class="form-control"  type="text" name="keywords" placeholder="Enter Keywords"  required="required" >
+<tr><td>
+Profile details
+<select name="stz" class="form-control"  >
+	<option value="private" selected>Private
+	<option value="public">Public
+</select>
+
+
+</input><tr><td><input type="submit" class="form-control" value="Add">
+                
+</table>
+</form>
+
+
+
+{% endblock %}

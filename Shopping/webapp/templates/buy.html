@@ -1,0 +1,40 @@
+
+
+{% extends 'base_u.html' %}
+{% block content %}
+
+{% load static %}
+
+
+	
+	<form method="post" action="/payment/">
+				{% csrf_token %} 
+<h2><strong>Payment</strong></h3>
+
+
+
+	<table id="tab" width="40%" align="center">
+<tr>
+	<td>Amount</td>
+	<td><input type="text" name="" value="{{tot}}" class="form-control"  required  placeholder="$" readonly></td>
+</tr>
+<tr>
+	<td>Debit or Credit Card Number</td>
+	<td><input type="text" name="" class="form-control"  required  ></td>
+</tr>
+<tr>
+	<td>Expiry</td>
+	<td><input type="month" name="" class="form-control"  required ></td>
+	<tr>
+	<td>CVV</td>
+	<td><input type="number" name="" class="form-control"  required ></td>
+</tr>
+<tr>
+	<td></td>
+
+		<td><input type="submit" value="Pay"  class="form-control"  required ></td>
+	</form>
+</table>
+
+	
+{% endblock %}

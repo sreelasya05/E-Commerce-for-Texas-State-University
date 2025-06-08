@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+</font>
+<center>
+<h2>Registration</h2><br>
+
+<form method="post" action="/usignupaction/">
+	{% csrf_token %} 
+<table  width="50%" cellspacing="10">
+                    <tr><td><input class="form-control"  type="text" name="name" placeholder="Name" required="required" ></input></td></tr>
+                    <tr><td><input class="form-control"  type="text" name="userid" placeholder="User ID" required="required" ></input></td></tr>
+                    <tr><td><input class="form-control"  type="email" name="mail" placeholder="Email, example@example.com" required="required" onblur="validate1()"></input></td></tr>
+                    <tr><td><input class="form-control"  type="text" name="ph" placeholder="Phone" required="required" onblur="validate3()"></input></td></tr>
+                    <tr><td><input class="form-control"  type="Password" name="pwd" placeholder="Password" required="required" onblur="validate5()"></input></td></tr>
+
+                    <tr><td>
+					<select name="gen"  class="form-control"  >
+						<option value="male" >Male
+						<option value="female">Female
+					</select><br>
+
+                    <tr><td>Select Security Question:
+					<select name="que"  class="form-control"  >
+						<option value="What was your childhood nickname?" >What was your childhood nickname?
+						<option value="What is the name of your favorite childhood friend?" >What is the name of your favorite childhood friend?
+						<option value="What school did you attend for sixth grade?" >What school did you attend for sixth grade?
+						<option value="What is your oldest cousin's first and last name?" >What is your oldest cousin's first and last name?
+						<option value="In what city or town did your mother and father meet?" >In what city or town did your mother and father meet?
+						<option value="In what city does your nearest sibling live?" >In what city does your nearest sibling live?
+						<option value="What is the name of a college you applied to but didn't attend?" >What is the name of a college you applied to but didn't attend?
+						<option value="Where were you when you first heard about 9/11?" >Where were you when you first heard about 9/11?
+					</select><br>
+
+<tr><td><input class="form-control"  type="text" name="ans" placeholder="Answer?" required="required" onblur="validate3()"></input></td></tr>
+                    
+
+					<tr><td><input type="submit" class="form-control" value="Register">
+                
+</table>
+</form>
+
+{% endblock %}

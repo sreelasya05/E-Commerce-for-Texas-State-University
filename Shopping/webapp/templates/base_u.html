@@ -1,0 +1,350 @@
+{% load static %}
+{% static "assets/images" as baseUrl %}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>User Home :: </title>
+  <!-- google fonts -->
+  <!-- google fonts -->
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style-starter.css' %} ">
+  <!-- Template CSS -->
+</head>
+
+<style>
+li a, .dropbtn {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.active{
+background-color: gray;
+color: white;
+}
+li a:hover , .dropdown:hover .dropbtn{
+  background-color: orange;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: lightblue;
+  min-width: 160px;
+  box-shadow: 5px 8px 10px 0px black;
+ }
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+background-color: gray;
+color:white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+
+<style>
+
+  #table_wrapper{ solid olive;float:center; }
+  #tbody{height:350px;overflow-y:auto;width:600px;background:#b2b2b2;}
+  table{border-collapse:collapse; }
+  td{padding:1px 5px;
+  
+   padding-top: 12px;
+    padding-bottom: 12px;
+	padding: 8px;
+  /* pixels */
+ /* to avoid the hacks for the padding */
+} 
+  .td1{width:100px;}
+  .td2{width:140px;}
+  .td3{border-right-width:0;} /* optional */
+
+
+
+#tab {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+   
+}
+
+#tab td, #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tab tr:nth-child(even){background-color: #f2f2f2;}
+
+#tab tr:hover {background-color: #ddd;}
+
+#tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #006699;
+    color: white;
+}
+</style>
+	</head>
+
+<body>
+  <!--header-->
+  <header id="site-header" class="fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+        <h1><a class="navbar-brand mr-lg-5" href="/">
+           <img src="{{baseUrl}}/Secondary_RGB_MRN-GLD.png" width="80" height="80" border="0" title="">  E-commerce
+          </a></h1>
+        <!-- if logo is image enable this   
+      <a class="navbar-brand" href="#/">
+          <img src="image-path" title="Your logo" title="Your logo" style="height:35px;" />
+      </a> -->
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto">
+            
+			<li >
+              <a href="/userhome">Home </a>
+            </li>
+            
+			<li >
+            <a href="/additem">Add Items</a>
+            </li>
+          <li class="dropdown">
+		  <a href="#" class="dropbtn">Products</a>
+		    <div class="dropdown-content">
+														{% for d in cat %}
+														<a href="{% url 'uviewproducts' cid=d.id%}">{{d.name}}</a>
+										        		{% endfor %}	
+
+		    </div>
+		  </li>
+
+
+			<li >
+              <a href="/addfeedback">Feedback</a>
+            </li>
+
+							
+<li >
+              <a href="/userlogout">Logout</a>
+            </li>
+
+          </ul>
+        </div>
+        
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+          <nav class="navigation">
+            
+					<div class="theme-switch-wrapper">
+	<li>
+									<a href="#" onclick="window.open('/chatpage', 'newwindow', 'width=550, height=750'); return false;"><img src="{{baseUrl}}/134909.png" width="40" height="40" border="0" title="Chat"></a> 
+								</li>
+
+				<a href="/vieworders"><img src="{{baseUrl}}/3144422.png" width="40" height="40" border="0" title="View Sale details"></a>   
+				<a href="/cartview"><img src="{{baseUrl}}/cart.png" width="50" height="50" border="0" title="Cart"></a>   
+				<a href="/uvieworders"><img src="{{baseUrl}}/2558162.png" width="40" height="40" border="0" title="View Own Orders"></a>   
+				<a href="/viewalerts"><img src="{{baseUrl}}/giphy.gif" width="50" height="30" border="0" title="Requests"></a>   
+				  
+
+		    </div>
+          </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+  <!-- //header -->
+  <!-- about breadcrumb -->
+  <section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container">
+        <br><br><br>
+        <ul class="breadcrumbs-custom-path mt-2">
+		
+		<li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> User Portal </li>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- //about breadcrumb -->
+ <!--  Work gallery section -->
+<section class="w3l-grids-3 py-5">
+   <div class="container py-md-5">
+      <div class="contact-grids ">
+
+
+
+		{% block content %}
+
+		  	  {% endblock %}
+      </div>      </div>
+</div></section>
+<!--  //Work gallery section -->
+<!-- grids block 5 -->
+  <!--/w3l-footer-29-main-->
+  <footer>
+    <!-- footer -->
+    <section class="w3l-footer">
+      <div class="w3l-footer-16-main py-5">
+       
+          <div class="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
+            <div class="columns text-lg-left text-center">
+              <p>&copy; All rights reserved.
+              </p>
+            </div>
+            <div class="columns-2 mt-lg-0 mt-3">
+              <ul class="social">
+                <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                </li>
+                <li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
+                </li>
+                <li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                </li>
+                <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                </li>
+                <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- move top -->
+      <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction()
+        };
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+          } else {
+            document.getElementById("movetop").style.display = "none";
+          }
+        }
+  
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <!-- //move top -->
+      <script>
+        ?(function () {
+          ?('.navbar-toggler').click(function () {
+            ?('body').toggleClass('noscroll');
+          })
+        });
+      </script>
+    </section>
+    <!-- //footer -->
+  </footer>
+  <!-- Template JavaScript -->
+  <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'assets/js/theme-change.js' %}"></script>
+  <!--/slider-js-->
+  <script src="{% static 'assets/js/jquery.min.js' %} "></script>
+  <script src="{% static 'assets/js/modernizr-2.6.2.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.zoomslider.min.js' %}"></script>
+  <!--//slider-js-->
+  <script src="{% static 'assets/js/owl.carousel.js' %}"></script>
+  <!-- script for tesimonials carousel slider -->
+  <script>
+    ?(document).ready(function () {
+      ?("#owl-demo1").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: false,
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false
+          },
+          736: {
+            items: 1,
+            nav: false
+          },
+          1000: {
+            items: 1,
+            nav: false,
+            loop: true
+          }
+        }
+      })
+    })
+  </script>
+  <!-- //script for tesimonials carousel slider -->
+  <!-- stats number counter-->
+  <script src=" {% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+
+  <script src="{% static 'assets/js/jquery.countup.js' %}"></script>
+  <script>
+    ?('.counter').countUp();
+  </script>
+  <!-- //stats number counter -->
+
+  <!--/MENU-JS-->
+  <script>
+    ?(window).on("scroll", function () {
+      var scroll = ?(window).scrollTop();
+
+      if (scroll >= 80) {
+        ?("#site-header").addClass("nav-fixed");
+      } else {
+        ?("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    ?(".navbar-toggler").on("click", function () {
+      ?("header").toggleClass("active");
+    });
+    ?(document).on("ready", function () {
+      if (?(window).width() > 991) {
+        ?("header").removeClass("active");
+      }
+      ?(window).on("resize", function () {
+        if (?(window).width() > 991) {
+          ?("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
+
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<font size="+1" color="red">
+</font>
+<center>
+<font size="+1" color="red">{{msg}}
+</font>
+<h2>Update Password</h2>
+<br>
+<form method="post" action="/forget3/">
+	{% csrf_token %} 
+<table  width="50%" id="tab" cellspacing="10">
+                    
+
+<input type="hidden" name="uid" value="{{data.userid}}">
+<tr><td><input class="form-control"  type="password" name="password" placeholder="New Password" required="required" onblur="validate3()"></input></td></tr>
+<tr><td><input type="submit" class="form-control" value="Submit">
+</table>
+<br>
+	
+</form>
+
+{% endblock %}

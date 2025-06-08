@@ -1,0 +1,30 @@
+		
+{% extends 'base_a.html' %}
+{% load static %}
+
+{% block content %}
+
+	<strong>{{msg}}</strong>
+	
+<h3>Feedback from students</h3><br>
+
+<center>
+			<table id="tab" width="100%">
+					<tr><th>Sno
+					<th width="60%">Feedback
+					<th>From
+				
+				{% for d in data %}
+	
+				<tr><td>{{forloop.counter}}		
+			
+						<td>{{d.feedback}}
+							<td>{{d.name}}
+							<br>User ID:{{d.userid}}
+						
+						
+			{% endfor %}
+			</table>
+				
+			
+{% endblock %}

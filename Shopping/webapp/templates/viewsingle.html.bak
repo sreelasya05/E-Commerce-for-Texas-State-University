@@ -1,0 +1,108 @@
+		
+{% extends 'base_u.html' %}
+{% load static %}
+
+{% block content %}
+{% static "assets/images" as baseUrl %}
+
+
+
+  <div class="best-rooms py-5">
+    <div class="container py-md-5">
+        <div class="ban-content-inf row">
+            <div class="maghny-gd-1 col-lg-6">
+              <div class="maghny-grid">
+                <figure class="effect-lily border-radius  m-0">
+                    <img class="img-fluid" src="{{baseUrl}}/{{d.photo}}" alt="" />
+                    <figcaption>
+                        <div>
+                            <h4>{{d.prod_name}}</h4>
+                        </div>
+
+                    </figcaption>
+                </figure>
+            </div>
+            </div>
+
+<table>
+		
+				<tr><td><h1>{{d.prod_name}}</h1>
+		<tr><td>
+				<h6 class="item_price"><font size="" color="#ff6699">Cost: ${{d.cost}}</font></h6>	
+		<tr><td>
+				<h6 class="item_price">{{d.description}}</h6>	
+
+				<tr><td>
+					{% if d.stz == 'public' %}
+						<hr>
+			<h6 class="item_price">Provider:<br> <h5>{{d.name}}, {{d.email}} </h6>	
+				<hr>
+				{% endif %}
+			<tr><td>
+					
+			<h6 class="item_price"><font size="" color="#6666ff">Availability: {{d.availability}} units</h6></font>	
+				<hr>
+
+
+				<form method="post" action="/addtocart/">
+				{% csrf_token %} 
+
+
+
+
+				<tr><td>
+					
+
+					<table>
+					<tr><td>
+					<h6 class="item_price">Quantity:
+					<input class="form-control"  type="number" name="qua" required="required"  min=1 max={{d.availability}} onblur="validate3()"></input>
+														
+					<input type="hidden" name="pid" value="{{d.id}}">
+					<input type="hidden" name="sid" value="{{d.sid}}">
+					<tr><td>
+										<input type="submit" class="form-control" size="30" value="Add to Cart"  class="bann-btns">
+									</form>
+								
+				</table>			
+				<br>				<br>
+				<table id="tab">
+				<tr>
+					<td><h5>{{l1}} Likes</h4></td>
+					<td><progress id="file" value="{{l1}}" max="{{l3}}"></progress></td>
+					<td><form method="get" action="/postlikes/">
+
+					<input type="hidden" name="cat_name" value="{{d.cat_name}}">
+					
+					<input type="hidden" name="like" value="like">
+					<input type="hidden" name="pid" value="{{d.id}}">
+						<input type="submit" value="Like :)"  class="form-control">
+					</form></td>
+
+				</tr>
+				<tr>
+				<td><h5>{{l2}} Dislikes</h4></td>
+
+					<td><progress id="file" value="{{l2}}" max="{{l3}}"></progress></td>
+										<form method="get" action="/postlikes/">
+					<input type="hidden" name="like" value="dislike">
+					<input type="hidden" name="pid" value="{{d.id}}">
+					
+					<td><input type="submit" value="Dislike :)"  class="form-control"></td>
+				
+				</form></tr>
+				
+				</table>
+
+
+				</table>
+				
+				
+			</div>
+		   <div class="clearfix"> </div>
+	   </div>	   </div>	   </div>
+
+
+
+
+{% endblock %}

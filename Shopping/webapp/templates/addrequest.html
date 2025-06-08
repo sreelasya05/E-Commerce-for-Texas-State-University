@@ -1,0 +1,22 @@
+{% extends 'base_u.html' %}
+{% block content %}
+{{msg}}
+<h1>Add Request</h1>
+<br>
+<center>
+<table id="tab" width="60%">
+
+<form method="post" action="/addrequest/">
+	{% csrf_token %} 
+<table  width="50%" cellspacing="10">
+                    <tr><td><input class="form-control"  type="text" name="type" placeholder="Add Product type or name" required="required" ></input>
+<tr><td><textarea placeholder="Product Description" class="form-control"   name="desc" rows="" cols=""></textarea>
+
+					<tr><td><br><input type="submit" class="form-control" value="Add">
+                
+</table>
+</form>
+
+
+
+{% endblock %}

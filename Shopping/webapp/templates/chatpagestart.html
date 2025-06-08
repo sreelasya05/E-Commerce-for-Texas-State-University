@@ -1,0 +1,107 @@
+ 
+ <html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+
+<style>
+
+  #table_wrapper{ solid olive;float:center; }
+  #tbody{height:350px;overflow-y:auto;width:600px;background:#b2b2b2;}
+  table{border-collapse:collapse; }
+  td{padding:1px 5px;
+  
+   padding-top: 12px;
+    padding-bottom: 12px;
+	padding: 8px;
+  /* pixels */
+ /* to avoid the hacks for the padding */
+} 
+  .td1{width:100px;}
+  .td2{width:140px;}
+  .td3{border-right-width:0;} /* optional */
+
+
+
+#tab {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+   
+}
+
+#tab td, #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tab tr:nth-child(even){background-color: #f2f2f2;}
+
+#tab tr:hover {background-color: #ddd;}
+
+#tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FFBB05;
+    color: white;
+}
+</style>
+<h2>Add user to start chat..</h2>
+<form method="post" action="/chatpage/">
+{% csrf_token %}
+	<table id="tab"  width="100%">
+	<tr><td><input type="text" name="email" class="form-control" required >
+	<td><input type="submit" value="Add">
+</table>
+</form>
+<hr>
+<h2>Select user to chat..</h2><br><br>
+
+<table id="tab" width="100%">
+
+
+{% for d in data %}
+
+<tr>
+<td><b>{{d.frnd_n}}</b><td>{{d.frnd_e}} <td>
+
+<form method="get" action="/chatload/">
+	<input type="hidden" name="remail" value="{{d.frnd_e}}">
+	<input type="submit" value="Chat">
+</form>
+</td>
+{% endfor %}
+
+
+</table >

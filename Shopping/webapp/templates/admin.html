@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+</font>
+<center>
+<h2>Admin Login Page</h2>
+
+
+					<form action="/adminlogin/" method="post">
+					{% csrf_token %}
+					<br>
+						<table width="50%" id="tab">
+						<tr><td>
+						<input class="form-control" type="text" placeholder="Enter User id" class="" name="uid" required="">
+						<input type="password" class="form-control" placeholder="Enter Password" name="pwd" required="">
+						<div class="con-form text-center">
+							<input type="submit" class="form-control" value="Login">
+						</div>
+
+						</table>
+					</form>
+
+{% endblock %}

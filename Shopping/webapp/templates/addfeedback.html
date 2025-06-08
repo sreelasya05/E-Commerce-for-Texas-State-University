@@ -1,0 +1,27 @@
+{% extends 'base_u.html' %}
+{% block content %}
+{{msg}}
+<h1>Feedback</h1>
+<br>
+<center>
+
+
+
+
+
+
+<table id="tab" width="60%">
+
+<form method="post" action="/addfeedback/">
+	{% csrf_token %} 
+<table  width="50%" cellspacing="10">
+<tr><td><textarea placeholder="Feedback" class="form-control"   name="feed" rows="" cols=""></textarea>
+
+					<tr><td><br><input type="submit" class="form-control" value="Submit">
+                
+</table>
+</form>
+
+
+
+{% endblock %}

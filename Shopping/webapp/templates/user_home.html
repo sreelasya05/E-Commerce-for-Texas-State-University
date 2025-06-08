@@ -1,0 +1,91 @@
+{% extends 'base_u.html' %}
+{% block content %}
+
+<h5>Welcome {{data.name}}</h1>
+<h6><font size="" color="red">{{msg}}</font></h6>
+<hr><center>
+<form method="post" action="/searchproducts/">
+{% csrf_token %} 
+	<table width="60%">
+<tr>
+	<td><input type="text" name="keys"  placeholder="Product Search" class="form-control"  required><td width="20%"><input type="submit" value="Search" class="form-control" >
+</tr>
+</table>
+</form></center>
+<hr>
+<br>
+<h4>Recommendation based on your intrests</h3><br>
+<table id="tab" width="100%" align="left">
+<tr><th>Sno<th>Item<th>Name<th>Price<th>Availability
+		
+				{% for d in rec1 %}
+	
+				<tr><td>{{forloop.counter}}</td>
+				
+				<td><a href="{% url 'viewsingle' pid=d.id%}"><img  src="{{baseUrl}}/{{d.photo}}" class="img-responsive" alt="" width="100">	</a>
+				<td>{{d.prod_name}}<td>$ {{d.cost}}<td>{{d.availability}} 
+						
+			{% endfor %}
+			</table>
+</table>
+<br><br><br>
+<h4>Recommendation based on your Search</h3><br>
+
+
+<table id="tab" width="100%" align="left">
+<tr><th>Sno<th>Item<th>Name<th>Price<th>Availability
+
+		
+				{% for d in rec2 %}
+					{% for d1 in d %}
+
+
+				<tr><td>
+				
+				<td><a href="{% url 'viewsingle' pid=d1.id%}"><img  src="{{baseUrl}}/{{d1.photo}}" class="img-responsive" alt="" width="100">	</a>
+				<td>{{d1.prod_name}}<td>$ {{d1.cost}}<td>{{d1.availability}} 
+
+					{% endfor %}
+						
+			{% endfor %}
+			</table>
+
+<h4>New Products</h3><br>
+
+
+<table id="tab" width="100%" align="left">
+<tr><th>Sno<th>Item<th>Name<th>Price<th>Availability
+
+		
+				{% for d1 in rec3 %}
+
+
+				<tr><td>
+				
+				<td><a href="{% url 'viewsingle' pid=d1.id%}"><img  src="{{baseUrl}}/{{d1.photo}}" class="img-responsive" alt="" width="100">	</a>
+				<td>{{d1.prod_name}}<td>$ {{d1.cost}}<td>{{d1.availability}} 
+
+						
+			{% endfor %}
+			</table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

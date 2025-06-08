@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+</font>
+<center>
+
+
+<table  width="50%" cellspacing="10">
+
+
+<form method="post" action="/usignupaction2/">
+{% csrf_token %}<input type="hidden" name="userid" value="{{uid}}">
+
+<tr><td><input class="form-control"  type="text" name="dept" placeholder="Department" required="required" ></input></td></tr>
+<tr><td><input class="form-control"  type="text" name="year" placeholder="Year" required="required" ></input></td></tr>
+<tr><td>
+<h2>Select your interests</h2><br>
+
+<select name="intrests" multiple="multiple" class="form-control"  >
+{% for d in data %}
+	<option value="{{d.name}}" ><h5>{{d.name}}
+{% endfor %}
+</select>
+
+<tr><td><input type="submit" class="form-control" value="Complete">
+                
+</table>
+</form>
+
+{% endblock %}

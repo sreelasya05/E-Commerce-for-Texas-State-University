@@ -1,0 +1,37 @@
+		
+{% extends 'base_u.html' %}
+{% load static %}
+
+{% block content %}
+
+<table align="right" id="tab">
+<tr>
+	<td><a href="/addrequest"><h3>Add Request</a>   </td>
+</tr>
+</table>
+
+	<strong>{{msg}}</strong>
+	
+<h3>Requests from others</h3>
+
+<center>
+			<table id="tab" width="100%">
+					<tr><th>Product Type
+					<th width="60%">Description		
+					<th>User Details
+				
+				{% for d in data %}
+	
+				<tr><td>		
+			
+						{{d.prodtype}}
+						<td>{{d.description}}
+							<td>{{d.name}}
+							<br>User ID:{{d.userid}}
+						
+						
+			{% endfor %}
+			</table>
+				
+			
+{% endblock %}

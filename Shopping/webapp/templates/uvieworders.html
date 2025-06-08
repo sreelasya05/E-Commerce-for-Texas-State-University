@@ -1,0 +1,47 @@
+		
+{% extends 'base_u.html' %}
+{% load static %}
+
+{% block content %}
+
+<br><h3>
+<strong>View Own Orders </strong></h3><br><br>
+
+			<table id="tab" width="100%">
+					<tr>
+					<th>OrderID
+					<th>Item
+					<th>Name		
+					<th>Unit Price
+					<th>Quantity
+					 <th>Total Cost	
+
+				
+				{% for d in o %}
+	
+				<tr>
+						<td>
+							{{d.oid}}</td>
+				
+				<td>		
+						<img  src="{{baseUrl}}/{{d.photo}}" class="img-responsive" alt="" width="100">	
+				<td>
+						{{d.prod_name}}
+						<td>$ {{d.unit_cost}}
+							<td>{{d.quantity}} unit/s
+						<td>
+							$ {{d.tot_cost}}</td>
+							
+						
+				
+
+						
+			{% endfor %}
+			</table>
+
+
+
+
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base_a.html' %}
+{% block content %}
+{{msg}}
+<h1>Add & View Categories</h1>
+<br><br>
+<center>
+<table id="tab" width="60%">
+
+<tr><th>Sno<th>Categories
+
+{% for d in data %}
+<tr><td>{{ forloop.counter }}<td>{{d.name}}
+{% endfor %}
+</table>
+<br>
+<h3><strong>Add Here</strong></h3>
+<form method="post" action="/addcataction/">
+	{% csrf_token %} 
+<table  width="50%" cellspacing="10">
+                    <tr><td><input class="form-control"  type="text" name="name" placeholder="Add Category" required="required" ></input><br></td></tr>
+                 	<tr><td><br><input type="submit" class="form-control" value="Add">
+                
+</table>
+</form>
+
+
+
+{% endblock %}
