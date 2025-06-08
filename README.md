@@ -1,1 +1,1 @@
-# E---Commerce-for-Texas-State-University
+# E-Commerce for Texas State University
