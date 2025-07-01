@@ -37,6 +37,6 @@ I developed a Django-based e-commerce platform as part of a course project, enab
 
 Python
 
-Django 2.2
+Django>=2.2
 
 MySQL
